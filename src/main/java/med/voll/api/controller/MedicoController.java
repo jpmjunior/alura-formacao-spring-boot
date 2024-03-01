@@ -1,5 +1,6 @@
 package med.voll.api.controller;
 
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 import med.voll.api.medico.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,7 +52,11 @@ public class MedicoController {
     @GetMapping("/{id}")
     public ResponseEntity<DadosDetalhamentoMedico> detalhar(@PathVariable Long id) {
         var medico = repository.getReferenceById(id);
-        return ResponseEntity.ok().body(new DadosDetalhamentoMedico(medico));
+        if(medico.getAtivo()){
+            return ResponseEntity.ok().body(new DadosDetalhamentoMedico(medico));
+        } else {
+            throw new EntityNotFoundException();
+        }
     }
 
 
