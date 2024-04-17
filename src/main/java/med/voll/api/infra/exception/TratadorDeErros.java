@@ -2,6 +2,7 @@ package med.voll.api.infra.exception;
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -14,8 +15,8 @@ import jakarta.persistence.EntityNotFoundException;
 public class TratadorDeErros {
     
     @ExceptionHandler(EntityNotFoundException.class)
-    public ResponseEntity<Object> erro404(){
-        return ResponseEntity.notFound().build();
+    public ResponseEntity<ErroDTO> erro404(EntityNotFoundException ex){
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ErroDTO(ex.getMessage()));
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -24,11 +25,13 @@ public class TratadorDeErros {
         return ResponseEntity.badRequest().body(erros.stream().map(DadosErroValidacao::new).toList());
     }
 
-    private record DadosErroValidacao(String campo, String mensagem) {
+    private record DadosErroValidacao(String campo, String mensagem){
         public DadosErroValidacao(FieldError erro){
             this(erro.getField(), erro.getDefaultMessage());
         }
     }
+
+    private record ErroDTO(String erro){}
     
 }
 
