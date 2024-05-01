@@ -1,4 +1,4 @@
-package med.voll.api.service.validadores;
+package med.voll.api.service.validadores.agendamento;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -9,7 +9,7 @@ import med.voll.api.domain.paciente.PacienteRepository;
 import med.voll.api.infra.exception.ValidacaoNegocioException;
 
 @Component
-public class ValidadorPacienteAtivo implements AbstractValidadorNegocio{
+public class ValidadorPacienteAtivo implements AbstractValidadorAgendamento{
 
     @Autowired
     PacienteRepository repository;

@@ -1,4 +1,4 @@
-package med.voll.api.service.validadores;
+package med.voll.api.service.validadores.agendamento;
 
 import java.time.LocalDateTime;
 
@@ -8,7 +8,7 @@ import med.voll.api.domain.consulta.DadosCadastroConsulta;
 import med.voll.api.infra.exception.ValidacaoNegocioException;
 
 @Component
-public class ValidadorAntecedenciaMinima implements AbstractValidadorNegocio{
+public class ValidadorAntecedenciaMinima implements AbstractValidadorAgendamento{
 
     @Override
     public void validar(DadosCadastroConsulta dados) {

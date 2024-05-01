@@ -1,4 +1,4 @@
-package med.voll.api.service.validadores;
+package med.voll.api.service.validadores.agendamento;
 
 import java.util.Optional;
 
@@ -10,7 +10,7 @@ import med.voll.api.domain.medico.MedicoRepository;
 import med.voll.api.infra.exception.ValidacaoNegocioException;
 
 @Component
-public class ValidadorMedicoAtivo implements AbstractValidadorNegocio{
+public class ValidadorMedicoAtivo implements AbstractValidadorAgendamento{
 
     @Autowired
     MedicoRepository repository;

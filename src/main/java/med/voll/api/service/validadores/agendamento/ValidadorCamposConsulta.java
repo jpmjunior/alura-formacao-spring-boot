@@ -1,4 +1,4 @@
-package med.voll.api.service.validadores;
+package med.voll.api.service.validadores.agendamento;
 
 import org.springframework.stereotype.Component;
 
@@ -6,7 +6,7 @@ import med.voll.api.domain.consulta.DadosCadastroConsulta;
 import med.voll.api.infra.exception.ValidacaoNegocioException;
 
 @Component
-public class ValidadorCamposConsulta implements AbstractValidadorNegocio{
+public class ValidadorCamposConsulta implements AbstractValidadorAgendamento{
 
     @Override
     public void validar(DadosCadastroConsulta dados) {

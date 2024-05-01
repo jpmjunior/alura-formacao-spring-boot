@@ -11,7 +11,7 @@ import med.voll.api.domain.consulta.ConsultaRepository;
 import med.voll.api.domain.consulta.DadosCadastroConsulta;
 import med.voll.api.domain.medico.MedicoRepository;
 import med.voll.api.domain.paciente.PacienteRepository;
-import med.voll.api.service.validadores.AbstractValidadorNegocio;
+import med.voll.api.service.validadores.agendamento.AbstractValidadorAgendamento;
 
 @Service
 public class AgendamentoService {
@@ -26,7 +26,7 @@ public class AgendamentoService {
     private PacienteRepository pacienteRepository;
 
     @Autowired
-    List<AbstractValidadorNegocio> validadores;
+    List<AbstractValidadorAgendamento> validadores;
 
     public Consulta agendar(DadosCadastroConsulta dados){
 
