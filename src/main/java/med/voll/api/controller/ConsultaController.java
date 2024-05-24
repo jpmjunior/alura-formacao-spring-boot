@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 import jakarta.validation.Valid;
 import med.voll.api.domain.consulta.Consulta;
 import med.voll.api.domain.consulta.DadosCadastroConsulta;
-import med.voll.api.domain.consulta.DadosDetalhamentoConsulta;
+import med.voll.api.domain.consulta.DadosCancelamentoConsulta;
+import med.voll.api.domain.consulta.DadosDetalhamentoConsultaAgendada;
+import med.voll.api.domain.consulta.DadosDetalhamentoConsultaCancelada;
 import med.voll.api.service.AgendamentoService;
 
 @RestController
@@ -21,11 +23,19 @@ public class ConsultaController {
     private AgendamentoService agendamentoService;
 
     @PostMapping
-    public ResponseEntity<DadosDetalhamentoConsulta> agendar(@RequestBody @Valid DadosCadastroConsulta dados){
+    public ResponseEntity<DadosDetalhamentoConsultaAgendada> agendar(@RequestBody @Valid DadosCadastroConsulta dados){
 
         Consulta consulta = agendamentoService.agendar(dados);
-        return ResponseEntity.ok().body(new DadosDetalhamentoConsulta(consulta));
+        return ResponseEntity.ok().body(new DadosDetalhamentoConsultaAgendada(consulta));
         
+    }
+
+    @PostMapping("/cancelamento")
+    public ResponseEntity<DadosDetalhamentoConsultaCancelada> cancelar(@RequestBody @Valid DadosCancelamentoConsulta dados) {
+        
+        Consulta consulta = agendamentoService.cancelar(dados);
+        return ResponseEntity.ok().body(new DadosDetalhamentoConsultaCancelada(consulta));
+
     }
 
 }
