@@ -25,6 +25,15 @@ O layout da aplicação mobile está disponível neste link: <a href="https://ww
 
 A documentação das funcionalidades da aplicação pode ser acessada neste link: <a href="https://trello.com/b/O0lGCsKb/api-voll-med">Trello</a>
 
+Para login na API, cadastre um usuário no banco de dados com senha em Bcrypt. Exemplo:
+```sql
+insert into usuarios values (1, 'ana.souza@voll.med', '$2a$10$Y50UaMFOxteibQEYLrwuHeehHYfcoafCopUazP12.rqB41bsolF5.');
+```
+Neste exemplo para autenticar use a seguinte credencial:  
+> user: ana.souza@voll.med  
+> pass: 123456
+
+
 ---
 
 ## 🛠 Tecnologias
