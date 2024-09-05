@@ -33,6 +33,7 @@ Neste exemplo para autenticar use a seguinte credencial:
 > user: ana.souza@voll.med  
 > pass: 123456
 
+Swagger: **[http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)**
 
 ---
 
